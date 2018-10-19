@@ -42,7 +42,7 @@ school_data$room_and_board <- numextract_comma(school_data$room_and_board)
 school_data$room_and_board <- str_replace_all(school_data$room_and_board, ",", "")
 school_data$room_and_board <- as.numeric(school_data$room_and_board)
 
-# Clean enrollment 
+# Clean enrollment - Extract and Convert Number
 school_data$enrollment <- numextract_comma(school_data$enrollment)
 school_data$enrollment <- str_replace_all(school_data$enrollment, ",", "")
 school_data$enrollment <- as.numeric(school_data$enrollment)
@@ -114,27 +114,27 @@ for (i in 1:nrow(school_data)){
 }
 school_data$endowment <- as.numeric(school_data$endowment)
 
-# Clean salary
+# Clean salary - Extract and convert number
 school_data$salary <- numextract_comma(school_data$salary)
 school_data$salary <- str_replace_all(school_data$salary, ",", "")
 school_data$salary <- as.numeric(school_data$salary)
 
-# Clean accept_rate
+# Clean accept_rate - Extract and convert number
 school_data$accept_rate <- numextract_comma(school_data$accept_rate)
 school_data$accept_rate <- as.numeric(school_data$accept_rate)
 school_data$accept_rate <- school_data$accept_rate / 100
 
-# Clean stud_fac_ratio (numextract returns first number)
+# Clean stud_fac_ratio (numextract returns first number) - Extract and convert number
 school_data$stud_fac_ratio <- numextract_comma(school_data$stud_fac_ratio)
 school_data$stud_fac_ratio <- as.numeric(school_data$stud_fac_ratio)
 
-# Clean four_year_grad_rate
+# Clean four_year_grad_rate - Extract and convert number
 school_data$four_year_grad_rate <- numextract_comma(school_data$four_year_grad_rate)
 school_data$four_year_grad_rate <- as.numeric(school_data$four_year_grad_rate)
 school_data$four_year_grad_rate <- school_data$four_year_grad_rate / 100
 
 # Final Formatting
-school_data <- cbind(ranking = rownames(school_data), school_data)
+school_data <- cbind(ranking = rownames(school_data), school_data) # adds rankings as column using df index as rankings
 school_data <- school_data[complete.cases(school_data), ] # removes rows containing NA
 school_data <- school_data[!grepl("-1", as.character(school_data$endowment)),] # removes rows where endowment = -1
 
