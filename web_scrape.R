@@ -36,7 +36,8 @@ for (i in 2:12){
 }
 
 # Initialize data frame with empty vectors
-school_data <- data.frame("instate_tuition"=character(),
+school_data <- data.frame("school_name"=character(),
+                          "instate_tuition"=character(),
                           "outstate_tuition"=character(),
                           "room_and_board"=character(),
                           "enrollment"=character(),
@@ -76,10 +77,17 @@ for (url in url_list) {
     Sys.sleep(1) # Wait one second between requests
     webpage <- read_html(sub_url)
     
+    # Scrape University Name
+    school_name <- webpage %>%
+                   html_nodes(".hero-heading") %>%
+                   html_text()
+    
+    school_name <- str_trim(str_replace_all(school_name, "\n" , ""))
+
     quick_stats_li <- webpage %>%
-                   html_nodes(".hero-stats-widget-stats") %>%
-                   html_nodes("ul") %>%
-                   html_nodes("li") 
+                      html_nodes(".hero-stats-widget-stats") %>%
+                      html_nodes("ul") %>%
+                      html_nodes("li") 
     
     quick_stats_span <- quick_stats_li %>% 
                         html_nodes("span") %>%
@@ -130,7 +138,8 @@ for (url in url_list) {
     stud_fac_ratio <- spans[6]
     four_year_grad_rate <- spans[7]
     
-    school_data[nrow(school_data) + 1,] = list(instate_tuition,
+    school_data[nrow(school_data) + 1,] = list(school_name,
+                                               instate_tuition,
                                                outstate_tuition,
                                                room_and_board,
                                                enrollment,
