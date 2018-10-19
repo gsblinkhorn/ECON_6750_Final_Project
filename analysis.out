@@ -1,0 +1,59 @@
+
+=================================================
+                          Dependent variable:    
+                      ---------------------------
+                                ranking          
+-------------------------------------------------
+instate_tuition                0.001***          
+                               (0.0004)          
+                                                 
+outstate_tuition               -0.002***         
+                               (0.0004)          
+                                                 
+room_and_board                 -0.002**          
+                                (0.001)          
+                                                 
+enrollment                     -0.001***         
+                               (0.0002)          
+                                                 
+school_type                     -8.609           
+                               (11.374)          
+                                                 
+religious_affiliation           -2.496           
+                                (6.074)          
+                                                 
+acad_calendar                   -2.666           
+                                (5.270)          
+                                                 
+setting_urban                   -8.942           
+                                (5.838)          
+                                                 
+setting_suburb                   0.246           
+                                (6.196)          
+                                                 
+endowment                        0.000           
+                                (0.000)          
+                                                 
+salary                         -0.002***         
+                               (0.0004)          
+                                                 
+accept_rate                    71.081***         
+                               (12.399)          
+                                                 
+stud_fac_ratio                  1.411**          
+                                (0.690)          
+                                                 
+four_year_grad_rate           -129.798***        
+                               (13.789)          
+                                                 
+Constant                      332.418***         
+                               (28.421)          
+                                                 
+-------------------------------------------------
+Observations                      222            
+R2                               0.869           
+Adjusted R2                      0.860           
+Residual Std. Error        25.183 (df = 207)     
+F Statistic            98.196*** (df = 14; 207)  
+=================================================
+Note:                 *p<0.1; **p<0.05; ***p<0.01
