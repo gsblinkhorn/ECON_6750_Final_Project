@@ -87,16 +87,16 @@ stargazer(lm_model, lm_model_endow_scaled,lm_model_log, step,
 # Create and Save Scatterplots
 attach(school_data_scaled)
 
-log <- plot(ranking, log(endow_billions), main="Scatterplot of Endowmenet (Billions) Versus Ranking",
+log <- plot(ranking, log(endow_billions), main="Scatterplot of Endowment (Billions) Versus Ranking",
      xlab="School Ranking", ylab="Log(Endowment (Billions))", col="blue")
 
 png("normal.png")
-normal <- plot(ranking, endow_billions, main="Scatterplot of Endowmenet (Billions) Versus Ranking",
+normal <- plot(ranking, endow_billions, main="Scatterplot of Endowment (Billions) Versus Ranking",
                xlab="School Ranking", ylab="Endowment (Billions)", col="red")
 dev.off()
 
 png("log.png")
-log <- plot(ranking, log(endow_billions), main="Scatterplot of Endowmenet (Billions) Versus Ranking",
+log <- plot(ranking, log(endow_billions), main="Scatterplot of Endowment (Billions) Versus Ranking",
             xlab="School Ranking", ylab="Log(Endowment (Billions))", col="blue")
 dev.off()
 
