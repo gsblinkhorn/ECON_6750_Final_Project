@@ -12,3 +12,12 @@ the clean/encoded data in school_data_clean.csv
 3) analysis.R - The R script responsible for conducting the statistical analysis and building the model for rankings. It reads in the data
 from school_data_clean.csv for this purpose.
 
+## Data Transformations
+<p align="center">
+  <img width="600px" src="https://github.com/gsblinkhorn/ECON_6750_Final_Project/blob/master/normal.png">
+</p>
+
+<p align="center">
+  <img width="600px" src="https://github.com/gsblinkhorn/ECON_6750_Final_Project/blob/master/log.png">
+</p>
+
