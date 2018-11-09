@@ -20,7 +20,7 @@
 library(stargazer)
 
 # SetWD
-setwd("C:/Users/jakes/Desktop/Course Work/ECON_6750_Introduction_to_Econometrics/ECON_6750_Final_Project")
+setwd("C:/Users/jakes/Desktop/CourseWork/ECON_6750_Introduction_to_Econometrics/ECON_6750_Final_Project")
 sink(file="analysis.out",append=FALSE,split=TRUE) 
 
 # Read in Data
@@ -41,7 +41,30 @@ lm_model <- lm(ranking ~ instate_tuition +
                  stud_fac_ratio +
                  four_year_grad_rate, school_data)
 
-stargazer(lm_model,
+lm_model_no_dummies <- lm(ranking ~ instate_tuition +
+                            outstate_tuition +
+                            room_and_board +
+                            enrollment +
+                            endowment +
+                            salary +
+                            accept_rate +
+                            stud_fac_ratio +
+                            four_year_grad_rate, school_data)
+
+school_data_scaled <- transform(school_data, endow_billions = endowment/1000000000)
+
+lm_model_endow_scaled <- lm(ranking ~ instate_tuition +
+                              outstate_tuition +
+                              room_and_board +
+                              enrollment +
+                              endow_billions +
+                              salary +
+                              accept_rate +
+                              stud_fac_ratio +
+                              four_year_grad_rate, school_data_scaled)
+
+stargazer(lm_model, lm_model_no_dummies,lm_model_endow_scaled,
+          column.labels=c("Full Model", "Model - No Dummies", "Endowment Scaled"),
           type="text")
 
 sink()
