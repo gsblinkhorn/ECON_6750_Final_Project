@@ -1,64 +1,169 @@
+Start:  AIC=1427.64
+ranking ~ instate_tuition + outstate_tuition + room_and_board + 
+    enrollment + school_type + religious_affiliation + acad_calendar + 
+    setting_urban + setting_suburb + log(endow_billions) + salary + 
+    accept_rate + stud_fac_ratio + four_year_grad_rate
 
-================================================================================================
-                                                 Dependent variable:                            
-                      --------------------------------------------------------------------------
-                                                       ranking                                  
-                             Full Model           Model - No Dummies        Endowment Scaled    
-                                (1)                      (2)                      (3)           
-------------------------------------------------------------------------------------------------
-instate_tuition               0.001***                 0.001***                 0.001***        
-                              (0.0004)                 (0.0002)                 (0.0002)        
-                                                                                                
-outstate_tuition             -0.002***                -0.002***                -0.002***        
-                              (0.0004)                 (0.0004)                 (0.0004)        
-                                                                                                
-room_and_board                -0.002**                 -0.002*                  -0.002*         
-                              (0.001)                  (0.001)                  (0.001)         
-                                                                                                
-enrollment                   -0.001***                -0.001***                -0.001***        
-                              (0.0002)                 (0.0002)                 (0.0002)        
-                                                                                                
-school_type                    -8.609                                                           
-                              (11.374)                                                          
-                                                                                                
-religious_affiliation          -2.496                                                           
-                              (6.074)                                                           
-                                                                                                
-acad_calendar                  -2.666                                                           
-                              (5.270)                                                           
-                                                                                                
-setting_urban                  -8.942                                                           
-                              (5.838)                                                           
-                                                                                                
-setting_suburb                 0.246                                                            
-                              (6.196)                                                           
-                                                                                                
-endowment                      0.000                    0.000                                   
-                              (0.000)                  (0.000)                                  
-                                                                                                
-endow_billions                                                                   0.711          
-                                                                                (0.522)         
-                                                                                                
-salary                       -0.002***                -0.002***                -0.002***        
-                              (0.0004)                 (0.0004)                 (0.0004)        
-                                                                                                
-accept_rate                  71.081***                66.887***                66.887***        
-                              (12.399)                 (12.286)                 (12.286)        
-                                                                                                
-stud_fac_ratio                1.411**                  1.573**                  1.573**         
-                              (0.690)                  (0.680)                  (0.680)         
-                                                                                                
-four_year_grad_rate         -129.798***              -124.980***              -124.980***       
-                              (13.789)                 (13.176)                 (13.176)        
-                                                                                                
-Constant                     332.418***               321.423***               321.423***       
-                              (28.421)                 (27.797)                 (27.797)        
-                                                                                                
-------------------------------------------------------------------------------------------------
-Observations                    222                      222                      222           
-R2                             0.869                    0.864                    0.864          
-Adjusted R2                    0.860                    0.858                    0.858          
-Residual Std. Error      25.183 (df = 207)        25.353 (df = 212)        25.353 (df = 212)    
-F Statistic           98.196*** (df = 14; 207) 149.842*** (df = 9; 212) 149.842*** (df = 9; 212)
-================================================================================================
-Note:                                                                *p<0.1; **p<0.05; ***p<0.01
+                        Df Sum of Sq    RSS    AIC
+- setting_suburb         1        78 120451 1425.8
+- stud_fac_ratio         1       161 120534 1425.9
+- acad_calendar          1       298 120672 1426.2
+- religious_affiliation  1       301 120675 1426.2
+- school_type            1       785 121158 1427.1
+- setting_urban          1       895 121269 1427.3
+<none>                               120373 1427.6
+- enrollment             1      1676 122049 1428.7
+- room_and_board         1      4245 124618 1433.3
+- instate_tuition        1      6495 126868 1437.3
+- outstate_tuition       1     11030 131403 1445.1
+- log(endow_billions)    1     12299 132672 1447.2
+- accept_rate            1     14455 134828 1450.8
+- salary                 1     14697 135070 1451.2
+- four_year_grad_rate    1     34230 154603 1481.2
+
+Step:  AIC=1425.78
+ranking ~ instate_tuition + outstate_tuition + room_and_board + 
+    enrollment + school_type + religious_affiliation + acad_calendar + 
+    setting_urban + log(endow_billions) + salary + accept_rate + 
+    stud_fac_ratio + four_year_grad_rate
+
+                        Df Sum of Sq    RSS    AIC
+- stud_fac_ratio         1       147 120598 1424.0
+- religious_affiliation  1       300 120751 1424.3
+- acad_calendar          1       308 120759 1424.3
+- school_type            1       913 121364 1425.5
+<none>                               120451 1425.8
+- setting_urban          1      1229 121680 1426.0
+- enrollment             1      1737 122188 1427.0
+- room_and_board         1      4267 124718 1431.5
+- instate_tuition        1      6885 127336 1436.1
+- outstate_tuition       1     11469 131920 1444.0
+- log(endow_billions)    1     12221 132672 1445.2
+- salary                 1     14632 135083 1449.2
+- accept_rate            1     14719 135171 1449.4
+- four_year_grad_rate    1     35103 155555 1480.6
+
+Step:  AIC=1424.05
+ranking ~ instate_tuition + outstate_tuition + room_and_board + 
+    enrollment + school_type + religious_affiliation + acad_calendar + 
+    setting_urban + log(endow_billions) + salary + accept_rate + 
+    four_year_grad_rate
+
+                        Df Sum of Sq    RSS    AIC
+- religious_affiliation  1       246 120844 1422.5
+- acad_calendar          1       305 120903 1422.6
+- school_type            1       981 121579 1423.8
+<none>                               120598 1424.0
+- setting_urban          1      1331 121929 1424.5
+- enrollment             1      1677 122275 1425.1
+- room_and_board         1      4186 124784 1429.6
+- instate_tuition        1      6746 127344 1434.1
+- outstate_tuition       1     11426 132024 1442.2
+- log(endow_billions)    1     13906 134504 1446.3
+- salary                 1     14763 135361 1447.7
+- accept_rate            1     15003 135601 1448.1
+- four_year_grad_rate    1     35887 156485 1479.9
+
+Step:  AIC=1422.51
+ranking ~ instate_tuition + outstate_tuition + room_and_board + 
+    enrollment + school_type + acad_calendar + setting_urban + 
+    log(endow_billions) + salary + accept_rate + four_year_grad_rate
+
+                      Df Sum of Sq    RSS    AIC
+- acad_calendar        1       291 121135 1421.0
+<none>                             120844 1422.5
+- setting_urban        1      1515 122359 1423.3
+- school_type          1      1526 122370 1423.3
+- enrollment           1      1628 122472 1423.5
+- room_and_board       1      4012 124857 1427.8
+- instate_tuition      1      7168 128013 1433.3
+- outstate_tuition     1     11557 132401 1440.8
+- log(endow_billions)  1     13689 134534 1444.3
+- salary               1     14520 135364 1445.7
+- accept_rate          1     14827 135672 1446.2
+- four_year_grad_rate  1     38023 158867 1481.2
+
+Step:  AIC=1421.04
+ranking ~ instate_tuition + outstate_tuition + room_and_board + 
+    enrollment + school_type + setting_urban + log(endow_billions) + 
+    salary + accept_rate + four_year_grad_rate
+
+                      Df Sum of Sq    RSS    AIC
+<none>                             121135 1421.0
+- school_type          1      1490 122625 1421.8
+- setting_urban        1      1615 122750 1422.0
+- enrollment           1      1731 122866 1422.2
+- room_and_board       1      3949 125084 1426.2
+- instate_tuition      1      6929 128064 1431.4
+- outstate_tuition     1     11278 132413 1438.8
+- log(endow_billions)  1     13579 134714 1442.6
+- accept_rate          1     14538 135673 1444.2
+- salary               1     14847 135982 1444.7
+- four_year_grad_rate  1     39128 160263 1481.2
+
+=============================================================================================================================
+                                                                Dependent variable:                                          
+                      -------------------------------------------------------------------------------------------------------
+                                                                      ranking                                                
+                             Full Model         Endowment in Billions   Log of Endowment (Billions)   Backwards Step Model   
+                                (1)                      (2)                        (3)                        (4)           
+-----------------------------------------------------------------------------------------------------------------------------
+instate_tuition               0.001***                 0.001***                  0.001***                   0.001***         
+                              (0.0004)                 (0.0004)                  (0.0004)                   (0.0004)         
+                                                                                                                             
+outstate_tuition             -0.002***                -0.002***                  -0.002***                  -0.002***        
+                              (0.0004)                 (0.0004)                  (0.0004)                   (0.0004)         
+                                                                                                                             
+room_and_board                -0.002**                 -0.002**                  -0.002***                  -0.002***        
+                              (0.001)                  (0.001)                    (0.001)                    (0.001)         
+                                                                                                                             
+enrollment                   -0.001***                -0.001***                  -0.0004*                   -0.0003*         
+                              (0.0002)                 (0.0002)                  (0.0002)                   (0.0002)         
+                                                                                                                             
+school_type                    -8.609                   -8.609                    -12.704                    -16.089         
+                              (11.374)                 (11.374)                  (10.932)                    (9.987)         
+                                                                                                                             
+religious_affiliation          -2.496                   -2.496                    -4.185                                     
+                              (6.074)                  (6.074)                    (5.813)                                    
+                                                                                                                             
+acad_calendar                  -2.666                   -2.666                    -3.614                                     
+                              (5.270)                  (5.270)                    (5.045)                                    
+                                                                                                                             
+setting_urban                  -8.942                   -8.942                    -6.947                     -6.107*         
+                              (5.838)                  (5.838)                    (5.598)                    (3.641)         
+                                                                                                                             
+setting_suburb                 0.246                    0.246                     -2.181                                     
+                              (6.196)                  (6.196)                    (5.955)                                    
+                                                                                                                             
+endowment                      0.000                                                                                         
+                              (0.000)                                                                                        
+                                                                                                                             
+endow_billions                                          0.772                                                                
+                                                       (0.521)                                                               
+                                                                                                                             
+log(endow_billions)                                                              -9.554***                  -9.606***        
+                                                                                  (2.077)                    (1.975)         
+                                                                                                                             
+salary                       -0.002***                -0.002***                  -0.002***                  -0.002***        
+                              (0.0004)                 (0.0004)                  (0.0004)                   (0.0003)         
+                                                                                                                             
+accept_rate                  71.081***                71.081***                  58.754***                  57.980***        
+                              (12.399)                 (12.399)                  (11.785)                   (11.522)         
+                                                                                                                             
+stud_fac_ratio                1.411**                  1.411**                     0.345                                     
+                              (0.690)                  (0.690)                    (0.655)                                    
+                                                                                                                             
+four_year_grad_rate         -129.798***              -129.798***                -106.800***                -110.596***       
+                              (13.789)                 (13.789)                  (13.920)                   (13.396)         
+                                                                                                                             
+Constant                     332.418***               332.418***                304.160***                 303.906***        
+                              (28.421)                 (28.421)                  (27.967)                   (26.002)         
+                                                                                                                             
+-----------------------------------------------------------------------------------------------------------------------------
+Observations                    222                      222                        222                        222           
+R2                             0.869                    0.869                      0.880                      0.879          
+Adjusted R2                    0.860                    0.860                      0.872                      0.874          
+Residual Std. Error      25.183 (df = 207)        25.183 (df = 207)          24.115 (df = 207)          23.960 (df = 211)    
+F Statistic           98.196*** (df = 14; 207) 98.196*** (df = 14; 207)  108.432*** (df = 14; 207)  153.632*** (df = 10; 211)
+=============================================================================================================================
+Note:                                                                                             *p<0.1; **p<0.05; ***p<0.01

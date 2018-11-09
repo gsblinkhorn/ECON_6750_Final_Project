@@ -18,6 +18,7 @@
 ###################################
 
 library(stargazer)
+library(ggplot2)
 
 # SetWD
 setwd("C:/Users/jakes/Desktop/CourseWork/ECON_6750_Introduction_to_Econometrics/ECON_6750_Final_Project")
@@ -26,6 +27,7 @@ sink(file="analysis.out",append=FALSE,split=TRUE)
 # Read in Data
 school_data <- read.csv("school_data_clean.csv", header=TRUE, sep=",")
 
+# Full Model
 lm_model <- lm(ranking ~ instate_tuition + 
                  outstate_tuition +
                  room_and_board + 
@@ -41,30 +43,62 @@ lm_model <- lm(ranking ~ instate_tuition +
                  stud_fac_ratio +
                  four_year_grad_rate, school_data)
 
-lm_model_no_dummies <- lm(ranking ~ instate_tuition +
-                            outstate_tuition +
-                            room_and_board +
-                            enrollment +
-                            endowment +
-                            salary +
-                            accept_rate +
-                            stud_fac_ratio +
-                            four_year_grad_rate, school_data)
-
+# Scales the endowmen to billions of dollars
 school_data_scaled <- transform(school_data, endow_billions = endowment/1000000000)
 
-lm_model_endow_scaled <- lm(ranking ~ instate_tuition +
+lm_model_endow_scaled <- lm(ranking ~ instate_tuition + 
                               outstate_tuition +
-                              room_and_board +
+                              room_and_board + 
                               enrollment +
+                              school_type +
+                              religious_affiliation +
+                              acad_calendar +
+                              setting_urban +
+                              setting_suburb +
                               endow_billions +
                               salary +
                               accept_rate +
                               stud_fac_ratio +
                               four_year_grad_rate, school_data_scaled)
 
-stargazer(lm_model, lm_model_no_dummies,lm_model_endow_scaled,
-          column.labels=c("Full Model", "Model - No Dummies", "Endowment Scaled"),
+lm_model_log <- lm(ranking ~ instate_tuition + 
+                     outstate_tuition +
+                     room_and_board + 
+                     enrollment +
+                     school_type +
+                     religious_affiliation +
+                     acad_calendar +
+                     setting_urban +
+                     setting_suburb +
+                     log(endow_billions) +
+                     salary +
+                     accept_rate +
+                     stud_fac_ratio +
+                     four_year_grad_rate, school_data_scaled)
+
+
+
+step <- step(lm_model_log, direction="backward")
+
+stargazer(lm_model, lm_model_endow_scaled,lm_model_log, step,
+          column.labels=c("Full Model", "Endowment in Billions", "Log of Endowment (Billions)", "Backwards Step Model"),
           type="text")
+
+# Create and Save Scatterplots
+attach(school_data_scaled)
+
+log <- plot(ranking, log(endow_billions), main="Scatterplot of Endowmenet (Billions) Versus Ranking",
+     xlab="School Ranking", ylab="Log(Endowment (Billions))", col="blue")
+
+png("normal.png")
+normal <- plot(ranking, endow_billions, main="Scatterplot of Endowmenet (Billions) Versus Ranking",
+               xlab="School Ranking", ylab="Endowment (Billions)", col="red")
+dev.off()
+
+png("log.png")
+log <- plot(ranking, log(endow_billions), main="Scatterplot of Endowmenet (Billions) Versus Ranking",
+            xlab="School Ranking", ylab="Log(Endowment (Billions))", col="blue")
+dev.off()
+
 
 sink()
